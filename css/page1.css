@@ -1,0 +1,37 @@
+body {
+	margin: 20px 100px;
+}
+
+.names {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.name {
+	display: flex;
+	flex: 1 1 0px;
+	max-width: calc(20vw - 12px * 4);
+	font-size: 12pt;
+}
+
+.islands {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+.islands img {
+	display: flex;
+	max-width: calc(20vw - 12px * 4);
+	height: auto;
+	flex: 1 1 0px;
+    border:5px solid transparent;
+}
+
+.islands img:hover {
+    border:5px solid #5500FF;
+}
