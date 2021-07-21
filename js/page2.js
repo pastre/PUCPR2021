@@ -1,36 +1,19 @@
 
 
-function debug() {
-	buildTable([
-		{
-			"username" : "username",
-			"firstName" : "firstName",
-			"lastName" : "lastName",
-			"birthdate" : "birthdate",
-			"createdAt" : "createdAt"
+function fetchUsers() {
+	$.ajax({
+		type: "GET",
+		dataType: "json",
+		// url: "../php/page2.php",
+		url: "http://localhost:8000/page2.php",
+		success: res => {
+			console.log("foi", res)
 		},
-		{
-			"username" : "username",
-			"firstName" : "firstName",
-			"lastName" : "lastName",
-			"birthdate" : "birthdate",
-			"createdAt" : "createdAt"
-		},
-		{
-			"username" : "username",
-			"firstName" : "firstName",
-			"lastName" : "lastName",
-			"birthdate" : "birthdate",
-			"createdAt" : "createdAt"
-		},
-		{
-			"username" : "username",
-			"firstName" : "firstName",
-			"lastName" : "lastName",
-			"birthdate" : "birthdate",
-			"createdAt" : "createdAt"
-		},
-	])
+		error: err => {
+			console.log("dasdsa")
+		}
+
+	})
 }
 
 function buildTable(users) {
