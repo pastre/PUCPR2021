@@ -37,5 +37,8 @@
 		)
 	);
 
+	header("HTTP/1.1 200 OK");
+	http_response_code(200);
+	header('Content-type: application/json');
 	echo json_encode($users);
 ?>

@@ -1,16 +1,15 @@
-
-
 function fetchUsers() {
 	$.ajax({
 		type: "GET",
 		dataType: "json",
 		// url: "../php/page2.php",
-		url: "http://localhost:8000/page2.php",
+		url: "http://localhost:8888/page2.php",
 		success: res => {
-			console.log("foi", res)
+			console.log(res);
+			buildTable(res);
 		},
-		error: err => {
-			console.log("dasdsa")
+		error: (req, status, err) => {
+			console.log("dasdsa", req.responseText)
 		}
 
 	})
@@ -19,6 +18,8 @@ function fetchUsers() {
 function buildTable(users) {
 	console.log("salvasdadse")
 
+	$('.usersTable').remove();
+
 	var table = $('<table>').addClass('usersTable');
 
 	var header = $('<tr></tr>');
@@ -26,8 +27,8 @@ function buildTable(users) {
 	header.append("<th>Username</th>");
 	header.append("<th>Nome</th>");
 	header.append("<th>Sobrenome</th>");
+	header.append("<th>Email</th>");
 	header.append("<th>Aniversario</th>");
-	header.append("<th>Data de Cadastro</th>");
 
 	table.append(header)
 
@@ -37,8 +38,8 @@ function buildTable(users) {
 		row.append(`<td>${user.username}</td>`);
 		row.append(`<td>${user.firstName}</td>`);
 		row.append(`<td>${user.lastName}</td>`);
-		row.append(`<td>${user.birthdate}</td>`);
-		row.append(`<td>${user.createdAt}</td>`);
+		row.append(`<td>${user.email}</td>`);
+		row.append(`<td>${user.birthday}</td>`);
 
 		table.append(row)
 	}
