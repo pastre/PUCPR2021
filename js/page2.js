@@ -2,16 +2,10 @@ function fetchUsers() {
 	$.ajax({
 		type: "GET",
 		dataType: "json",
-		// url: "../php/page2.php",
 		url: "http://localhost:8888/page2.php",
 		success: res => {
-			console.log(res);
 			buildTable(res);
-		},
-		error: (req, status, err) => {
-			console.log("dasdsa", req.responseText)
 		}
-
 	})
 }
 
